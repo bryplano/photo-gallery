@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Plugins } from '@capacitor/core';
+
+
+const { Share } = Plugins;
 
 @Component({
   selector: 'app-tab1',
@@ -9,4 +13,12 @@ export class Tab1Page {
 
   constructor() {}
 
+  async shareImage() {
+    let shareRet = await Share.share({
+      title: 'Stuff',
+      text: 'Cool thing',
+      url: '',
+      dialogTitle: 'Share with people'
+    });
+  }
 }
